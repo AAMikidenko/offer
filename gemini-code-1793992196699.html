@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Customers for Your Restaurant — Authentic Content Strategy</title>
+    <style>
+        :root {
+            --bg-page: #EFECE6;
+            --bg-main: #FAF7F2;
+            --card-bg: #FFFFFF;
+            --pastel-sand: #F3EDE2;
+            --pastel-sage: #E6EFE9;
+            --accent-terracotta: #C86D51;
+            --accent-olive: #4A6B53;
+            --text-dark: #2C2623;
+            --text-muted: #6E655F;
+            --border-soft: #E6DFD5;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-page);
+            color: var(--text-dark);
+            line-height: 1.55;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Mobile-First Wrapper */
+        .mobile-wrapper {
+            width: 100%;
+            max-width: 480px;
+            background-color: var(--bg-main);
+            min-height: 100vh;
+            padding: 28px 18px 44px;
+            box-shadow: 0 0 30px rgba(44, 38, 35, 0.08);
+        }
+
+        .badge-top {
+            display: inline-block;
+            background: var(--pastel-sand);
+            color: var(--accent-terracotta);
+            border: 1px solid var(--border-soft);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 6px 14px;
+            border-radius: 20px;
+            margin-bottom: 14px;
+        }
+
+        header {
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        h1 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            line-height: 1.25;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
+        h1 span {
+            color: var(--accent-terracotta);
+            font-style: italic;
+        }
+
+        .subtitle {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        /* Market Shift Insight Box */
+        .insight-box {
+            background-color: var(--pastel-sand);
+            border-left: 4px solid var(--accent-terracotta);
+            padding: 18px;
+            border-radius: 0 14px 14px 0;
+            margin-bottom: 24px;
+        }
+
+        .insight-box h3 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 1rem;
+            color: var(--accent-terracotta);
+            margin-bottom: 6px;
+        }
+
+        .insight-box p {
+            font-size: 0.9rem;
+            color: var(--text-dark);
+        }
+
+        /* Section Cards */
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-soft);
+            border-radius: 16px;
+            padding: 22px 18px;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 12px rgba(44, 38, 35, 0.03);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+
+        .step-num {
+            background-color: var(--pastel-sand);
+            color: var(--accent-terracotta);
+            font-family: Georgia, serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            border: 1px solid var(--border-soft);
+        }
+
+        h2 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 10px;
+            font-size: 0.92rem;
+            color: var(--text-muted);
+        }
+
+        li:last-child {
+            margin-bottom: 0;
+        }
+
+        li::before {
+            content: "•";
+            position: absolute;
+            left: 4px;
+            color: var(--accent-terracotta);
+            font-weight: bold;
+            font-size: 1.1rem;
+            line-height: 1.3;
+        }
+
+        li strong {
+            color: var(--text-dark);
+        }
+
+        /* Social Pills */
+        .social-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 14px;
+        }
+
+        .pill {
+            background-color: var(--pastel-sand);
+            border: 1px solid var(--border-soft);
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        /* Classic Pastel Analytics Widget */
+        .analytics-widget {
+            background-color: var(--bg-main);
+            border: 1px solid var(--border-soft);
+            border-radius: 14px;
+            padding: 16px;
+            margin-top: 14px;
+        }
+
+        .analytics-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .analytics-title {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .analytics-period {
+            background: var(--pastel-sage);
+            color: var(--accent-olive);
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 12px;
+        }
+
+        .analytics-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .stat-box {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-soft);
+            padding: 12px;
+            border-radius: 10px;
+        }
+
+        .stat-name {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+
+        .stat-row {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+        }
+
+        .stat-val {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .stat-growth {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--accent-olive);
+        }
+
+        .honest-note {
+            margin-top: 14px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            background: var(--pastel-sand);
+            padding: 12px;
+            border-radius: 10px;
+        }
+
+        /* Offer Card */
+        .offer-card {
+            background-color: var(--card-bg);
+            border: 2px solid var(--accent-terracotta);
+            border-radius: 18px;
+            padding: 24px 18px;
+            margin-top: 24px;
+            box-shadow: 0 8px 24px rgba(200, 109, 81, 0.1);
+        }
+
+        .offer-title {
+            font-family: Georgia, "Times New Roman", serif;
+            text-align: center;
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 18px;
+        }
+
+        .deliverables {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .deliv-item {
+            background: var(--pastel-sand);
+            border: 1px solid var(--border-soft);
+            padding: 16px 10px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .deliv-num {
+            font-family: Georgia, serif;
+            font-size: 1.7rem;
+            font-weight: 700;
+            color: var(--accent-terracotta);
+            line-height: 1.1;
+        }
+
+        .deliv-text {
+            font-size: 0.82rem;
+            color: var(--text-dark);
+            margin-top: 6px;
+            font-weight: 500;
+        }
+
+        .steps-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .steps-list li::before {
+            content: "✓";
+            color: var(--accent-olive);
+            left: 2px;
+        }
+
+        .price-block {
+            background: var(--bg-main);
+            border-radius: 14px;
+            padding: 18px;
+            text-align: center;
+            margin-top: 20px;
+            border: 1px solid var(--border-soft);
+        }
+
+        .total-price {
+            font-family: Georgia, serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            line-height: 1;
+        }
+
+        .payment-split {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 12px;
+            font-size: 0.85rem;
+        }
+
+        .split-pill {
+            background: var(--card-bg);
+            padding: 6px 12px;
+            border-radius: 8px;
+            color: var(--text-muted);
+            border: 1px solid var(--border-soft);
+        }
+
+        .split-pill strong {
+            color: var(--accent-terracotta);
+        }
+
+        /* Contact Section */
+        .contact-card {
+            background-color: var(--pastel-sage);
+            border: 1px solid #CFE0D5;
+            border-radius: 16px;
+            padding: 22px 18px;
+            margin-top: 24px;
+            text-align: center;
+        }
+
+        .contact-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--accent-olive);
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .contact-name {
+            font-family: Georgia, serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+        }
+
+        .contact-phone {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 16px;
+        }
+
+        .contact-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            text-decoration: none;
+            padding: 12px 16px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        .btn-call {
+            background-color: var(--accent-terracotta);
+            color: #FFFFFF;
+        }
+
+        .btn-sms {
+            background-color: var(--card-bg);
+            color: var(--text-dark);
+            border: 1px solid var(--border-soft);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 28px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="mobile-wrapper">
+        <header>
+            <div class="badge-top">Content Strategy</div>
+            <h1>Customers for Your Restaurant: <span>Real Content</span></h1>
+            <p class="subtitle">How to attract local guests in an era of AI-overloaded social media</p>
+        </header>
+
+        <div class="insight-box">
+            <h3>The Market Shift</h3>
+            <p>Social media is flooded with artificial AI content and overly polished ads — and people are tired of it. Today, there is a massive surge in demand for <strong>"real, raw content"</strong>: unedited, authentic, human, and imperfectly real.</p>
+        </div>
+
+        <!-- 1. Who Are Our Customers? -->
+        <div class="card">
+            <div class="card-header">
+                <div class="step-num">1</div>
+                <h2>Who Are Our Customers?</h2>
+            </div>
+            <ul>
+                <li>Local residents, families, and groups of friends looking for great food right in their neighborhood.</li>
+                <li>People tired of fake corporate ads who want to support real local spots with soul and quality.</li>
+                <li>Local offices and teams ordering lunches, family trays, and catering.</li>
+            </ul>
+        </div>
+
+        <!-- 2. What Do They Want? -->
+        <div class="card">
+            <div class="card-header">
+                <div class="step-num">2</div>
+                <h2>What Do They Want?</h2>
+            </div>
+            <ul>
+                <li>Fresh, hot, delicious food made from honest ingredients.</li>
+                <li>To see who is actually making their food and how clean the kitchen is.</li>
+                <li>To trust the owner and feel the genuine energy behind the establishment.</li>
+            </ul>
+        </div>
+
+        <!-- 3. What Do They Want to See? -->
+        <div class="card">
+            <div class="card-header">
+                <div class="step-num">3</div>
+                <h2>What Do They Want to See?</h2>
+            </div>
+            <ul>
+                <li><strong>The Owner in Action:</strong> how you cook, your personal story, why you love what you do, how you started, and behind-the-scenes of your biggest orders.</li>
+                <li><strong>Real Kitchen Processes:</strong> prepping fresh ingredients, grilling, baking, plating — raw and unscripted.</li>
+                <li><strong>The Team:</strong> real faces, daily kitchen rhythm, and genuine hospitality.</li>
+            </ul>
+        </div>
+
+        <!-- 4. Where Are They Online? -->
+        <div class="card">
+            <div class="card-header">
+                <div class="step-num">4</div>
+                <h2>Where Are They Online?</h2>
+            </div>
+            <div class="social-pills">
+                <div class="pill">Facebook (+ Local Groups)</div>
+                <div class="pill">Instagram</div>
+                <div class="pill">TikTok</div>
+            </div>
+            <ul>
+                <li><strong>Formats:</strong> Reels, TikTok videos, and storytelling photo carousels.</li>
+                <li>You must have a consistent presence on social media — when you share real human stories, the algorithms push your content organically.</li>
+            </ul>
+        </div>
+
+        <!-- Case Study: Mayar -->
+        <div class="card" style="border-color: var(--accent-terracotta);">
+            <div class="card-header">
+                <div class="step-num">📊</div>
+                <h2>Example: 5 Days with Mayar</h2>
+            </div>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 10px;">
+                Real analytics after launching raw, authentic content:
+            </p>
+
+            <!-- Analytics Widget -->
+            <div class="analytics-widget">
+                <div class="analytics-top">
+                    <span class="analytics-title">Analytics Overview</span>
+                    <span class="analytics-period">28 days</span>
+                </div>
+                <div class="analytics-grid">
+                    <div class="stat-box">
+                        <div class="stat-name">Views</div>
+                        <div class="stat-row">
+                            <span class="stat-val">30,022</span>
+                            <span class="stat-growth">↑ 55x</span>
+                        </div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-name">Engagement</div>
+                        <div class="stat-row">
+                            <span class="stat-val">1,211</span>
+                            <span class="stat-growth">↑ 242x</span>
+                        </div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-name">New Follows</div>
+                        <div class="stat-row">
+                            <span class="stat-val">22</span>
+                            <span class="stat-growth">↑ 11x</span>
+                        </div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-name">Ad Spend</div>
+                        <div class="stat-row">
+                            <span class="stat-val">$0.00</span>
+                            <span class="stat-growth" style="color: var(--text-muted);">Organic</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="honest-note">
+                <strong>Our Honest Approach:</strong> No one can predict the exact numbers your page will hit upfront. What we do know is that you <em>must</em> be on social media — and when we put out real, authentic content, the algorithms pick it up naturally with $0 spent on ads.
+            </div>
+        </div>
+
+        <!-- The Offer -->
+        <div class="offer-card">
+            <div class="offer-title">The Content Package</div>
+            
+            <div class="deliverables">
+                <div class="deliv-item">
+                    <div class="deliv-num">10</div>
+                    <div class="deliv-text">Raw Videos (Reels / TikTok / FB)</div>
+                </div>
+                <div class="deliv-item">
+                    <div class="deliv-num">5</div>
+                    <div class="deliv-text">Photo Carousels (Dishes & Story)</div>
+                </div>
+            </div>
+
+            <div class="steps-title">How We Work Together:</div>
+            <ul class="steps-list">
+                <li><strong>Step 1:</strong> Content plan approval.</li>
+                <li><strong>Step 2:</strong> 1 Shoot Day — 4 to 5 hours on-site (we bring all professional lighting & audio gear).</li>
+                <li><strong>Step 3:</strong> Publishing content across your Facebook, Instagram, and TikTok pages.</li>
+            </ul>
+
+            <div class="price-block">
+                <div class="total-price">$800</div>
+                <div class="payment-split">
+                    <div class="split-pill"><strong>$500</strong> — Upfront</div>
+                    <div class="split-pill"><strong>$300</strong> — After 7 Days</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="contact-card">
+            <div class="contact-label">Let's Get Started</div>
+            <div class="contact-name">Andrei</div>
+            <div class="contact-phone">(213) 796-9233</div>
+            <div class="contact-actions">
+                <a href="tel:+12137969233" class="btn btn-call">Call Andrei</a>
+                <a href="sms:+12137969233" class="btn btn-sms">Send a Text</a>
+            </div>
+        </div>
+
+        <footer>
+            Authentic Content • Zero AI Noise • Real Local Stories
+        </footer>
+    </div>
+
+</body>
+</html>
+```[cite: 1]
